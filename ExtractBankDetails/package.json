@@ -1,0 +1,15 @@
+{
+  "name": "extract-bank-details",
+  "version": "1.0.0",
+  "description": "",
+  "main": "casper_test.js",
+  "dependencies": {
+    "casperjs": "^1.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

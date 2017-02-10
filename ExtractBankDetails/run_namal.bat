@@ -1,0 +1,1 @@
+casperjs C:\Projects\ExtractBankDetails\namal.js
