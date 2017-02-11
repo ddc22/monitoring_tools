@@ -4,7 +4,7 @@ var casper = require('casper').create({
 });
 var fs = require('fs');
 
-var picOutputs = "./output-namal/"
+var picOutputs = "/home/ubuntu/Projects/monitoring_tools/ExtractBankDetails/output-namal/"
 var namal = "http://www.namalfunds.com/fund-prices.html";
 var locationLogs = 0;
 
@@ -70,10 +70,10 @@ var landingPage = function (){
 		line +=efectiveInfo[i];
 		if((i+1) %  3 == 0){
 			var rightNow = new Date();
-			var res = rightNow.toISOString().slice(0,10);
-			casper.echo(res+","+line+"\n");
+			var rightNowString = rightNow.toISOString();
+			var rightNowDate = rightNowString.slice(0,10);
 
-			fs.write(csvFile, res+","+line+"\n", 'a');
+			fs.write(csvFile, rightNowString+","+rightNowDate+","+line+"\n", 'a');
 			line ="";
 		} else {
 			line +=",";
