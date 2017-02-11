@@ -4,7 +4,7 @@ var casper = require('casper').create({
 });
 var fs = require('fs');
 
-var picOutputs = "./output-namal/"
+var picOutputs = "/home/ubuntu/Projects/monitoring_tools/ExtractBankDetails/output-namal/"
 var namal = "http://www.namalfunds.com/fund-prices.html";
 var locationLogs = 0;
 
@@ -16,20 +16,7 @@ casper.on('remote.message', function(message) {
 });
 casper.start(namal);
 
-var api ={};
-api.checkIfLoginFlowStepSucceeded = function(messages){
-	casper.log('Check if logging step succeeded', 'info');
-	if(messages.indexOf("strong") >= 0){
-		casper.log('[TRACE] Login step error detected');
-		casper.warn(messages);
-		casper.exit();
-		return false;
-	} else {
-		casper.log('[TRACE] Login flow step succeeded', 'info');
-		return true;
-	}
 
-}
 
 var landingPage = function (){
     casper.echo('First Page: ' + this.getTitle());
@@ -63,6 +50,7 @@ var landingPage = function (){
 	fs.write(myfile, JSON.stringify(info, undefined, 4), 'w');
 
 
+	
 
 	var line = "";
 	var efectiveInfo = info.slice(3);
@@ -70,10 +58,11 @@ var landingPage = function (){
 		line +=efectiveInfo[i];
 		if((i+1) %  3 == 0){
 			var rightNow = new Date();
-			var res = rightNow.toISOString().slice(0,10);
-			casper.echo(res+","+line+"\n");
+			casper.echo('HIT');
+			var rightNowString = rightNow.toISOString();
+			var rightNowDate = rightNowString.slice(0,10);
 
-			fs.write(csvFile, res+","+line+"\n", 'a');
+			fs.write(csvFile, rightNowString+","+rightNowDate+","+line+"\n", 'a');
 			line ="";
 		} else {
 			line +=",";

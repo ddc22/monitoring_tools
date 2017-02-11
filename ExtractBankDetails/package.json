@@ -4,7 +4,9 @@
   "description": "",
   "main": "casper_test.js",
   "dependencies": {
-    "casperjs": "^1.1.3"
+    "casperjs": "^1.1.3",
+    "phantomjs": "^2.1.7",
+    "slimerjs": "^0.10.2"
   },
   "devDependencies": {},
   "scripts": {
