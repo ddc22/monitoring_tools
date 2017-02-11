@@ -58,7 +58,7 @@ var landingPage = function (){
 		line +=efectiveInfo[i];
 		if((i+1) %  3 == 0){
 			var rightNow = new Date();
-			casper.echo('HIT');
+
 			var rightNowString = rightNow.toISOString();
 			var rightNowDate = rightNowString.slice(0,10);
 
